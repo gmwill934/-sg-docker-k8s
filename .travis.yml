@@ -1,0 +1,10 @@
+sudo: required
+language: generic
+services:
+  - docker
+
+before_install:
+  - docker build -t gmwill934/react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true gmwill934/react npm test
